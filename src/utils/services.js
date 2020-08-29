@@ -2,27 +2,30 @@ import axios from '../helpers/AxiosHelper';
 import config from '../config';
 
 const baseUrl = config.baseUrl.url;
-class Characters {
-    static characters() {
-        return axios.get(`${baseUrl}/characters`, {
-            params: {
-                apikey: config.publicApiKey,
-                ts: config.timestamp,
-                hash: config.md5Hash
-            }
-        })
-            .then(function (response) {
-                // handle success
-                console.log(response);
+class BoticarioServices {
+    static users() {
+        return axios
+            .get(`${baseUrl}/users`)
+            .then((response) => {
+               return response.data;
             })
-            .catch(function (error) {
+            .catch((error) => {
                 // handle error
                 console.log(error);
+            });
+    }
+
+    static products() {
+        return axios
+            .get(`${baseUrl}/products`)
+            .then((response) => {
+               return response.data;
             })
-            .then(function () {
-                // always executed
+            .catch((error) => {
+                // handle error
+                console.log(error);
             });
     }
 }
 
-export default Characters;
+export default BoticarioServices;

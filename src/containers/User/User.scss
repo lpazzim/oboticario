@@ -1,6 +1,10 @@
-.page-two{
-    h1{
-        color: red;
-        font-size: 72px;
+.user {
+    display: flex;
+    justify-content: center;
+    .user-form {
+        border-radius: 8px;
+        border: solid 1px #f0f0f0;
+        background-color: #ffffff;
+        padding: 24px;
     }
 }

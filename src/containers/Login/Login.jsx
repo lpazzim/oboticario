@@ -1,26 +1,32 @@
 import React from 'react';
 import './Login.scss';
-import Grid from '@material-ui/core/Grid';
 import { Button, TextField } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 
-export default function Login() {
+function Login() {
+  const history = useHistory();
+
   return (
-    <div className="login">
-      <Grid container className="login-form">
-        <Grid item xs={12} className="login-body">
-          <Grid item xs={12} className="login-body">
-            <TextField id="email" label="e-mail" className="text-field" />
-          </Grid>
-          <Grid item xs={12} className="login-body">
-            <TextField id="password" label="senha" className="text-field" />
-          </Grid>
-        </Grid>
-        <Grid item xs={12} className="login-footer">
-          <Button> Cancelar </Button>
-          <Button> Login </Button>
-        </Grid>
-      </Grid>
-    </div>
+    <section className="login">
+      <div className="login-form">
+        <div className="login-body" >
+          <div className="email">
+            <TextField fullWidth id="email" label="e-mail" />
+          </div>
+          <div className="password">
+            <TextField fullWidth type="password" id="password" label="senha" />
+          </div>
+        </div>
+        <div className="login-footer">
+          <Button onClick={() => history.push('/products')}> Entrar </Button>
+          <div>
+            <span>Você ainda não tem uma conta? </span>
+            <a href="#/user">Cadastrar-se</a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
+export default Login;
