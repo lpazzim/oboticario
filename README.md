@@ -1,4 +1,4 @@
-The Project [Grupo Boticario](https://app.netlify.com/sites/suspicious-agnesi-24202f/overview).
+The Project [Grupo Boticario](https://suspicious-agnesi-24202f.netlify.app).
 
 ## Available Scripts
 
