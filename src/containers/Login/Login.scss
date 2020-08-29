@@ -3,19 +3,18 @@
   justify-content: center;
   .login-form {
     border-radius: 8px;
-    border: solid 1px #f0f0f0;
+    box-shadow: 5px 4px 4px 0 rgba(0, 0, 0, 0.12);
     background-color: #ffffff;
     padding: 24px;
-    .form-body {
-      width: 100%;
-      display: flex;
-      .email, .senha{
+    .login-body {
+      margin: 24px 0;
+      .email,
+      .senha {
         width: 100%;
         margin-bottom: 10px;
       }
-
     }
-    .form-footer {  
+    .form-footer {
       width: 100%;
       display: flex;
     }

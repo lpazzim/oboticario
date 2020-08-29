@@ -21,8 +21,8 @@ function User() {
           <TextField id="confirm-password" label="Confirmar Senha" />
         </div>
         <div>
-          <Button onClick={() => history.push('/')}>Cancelar</Button>
-          <Button>Salvar</Button>
+          <Button variant="outlined" color="primary" onClick={() => history.push('/')}>Cancelar</Button>
+          <Button variant="outlined" color="primary" >Salvar</Button>
         </div>
       </div>
     </section>

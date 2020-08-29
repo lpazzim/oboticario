@@ -19,7 +19,7 @@ function Login() {
           </div>
         </div>
         <div className="login-footer">
-          <Button onClick={() => history.push('/products')}> Entrar </Button>
+          <Button variant="outlined" color="primary" fullWidth onClick={() => history.push('/products')}> Entrar </Button>
           <div>
             <span>Você ainda não tem uma conta? </span>
             <a href="#/user">Cadastrar-se</a>
