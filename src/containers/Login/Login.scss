@@ -1,0 +1,20 @@
+.login {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  .login-form {
+    border-radius: 8px;
+    border: solid 1px #f0f0f0;
+    background-color: #ffffff;
+    .form-body {
+      width: 100%;
+      display: flex;
+    }
+    .form-footer {
+      width: 100%;
+      display: flex;
+    }
+  }
+}
