@@ -1,0 +1,33 @@
+.products-container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    .item {
+        margin: 24px 10px;
+        border: 1px solid #ebebeb;
+        border-radius: 2px;
+        padding: 10px;
+        min-width: 255px;
+        .item-image {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            img {
+                cursor: pointer;
+                max-width: 200px;
+                max-height: 200px;
+            }
+        }
+
+        .item-button {
+            bottom: 0;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            .MuiTextField-root{
+                width: 80px;
+            }
+        }
+    }
+}
