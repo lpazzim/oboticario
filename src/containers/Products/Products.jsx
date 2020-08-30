@@ -144,7 +144,7 @@ function Products() {
                         </div>
                         <div className={classes.totalItems}>
                             <h2>Subtotal</h2>
-                            <p>{totalCart.toFixed(2)}</p>
+                            <p>{`R$ ${totalCart.toFixed(2)}`}</p>
                         </div>
                         <Button fullWidth variant="contained"
                             color="primary"
