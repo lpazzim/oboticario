@@ -1,4 +1,4 @@
-.footer{
+.footer {
     background-color: #6d6d6d;
     width: 100%;
     position: fixed;
@@ -6,4 +6,12 @@
     display: flex;
     justify-content: flex-end;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        img{
+            margin: 20px 50px;
+        }
+    }
 }

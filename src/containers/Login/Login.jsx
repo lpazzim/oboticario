@@ -15,7 +15,6 @@ function Login() {
     loadUsers();
   }, []);
 
-
   function loadUsers() {
     BoticarioServices.getUsers().then((res) => {
       setUsers(res);
@@ -26,12 +25,14 @@ function Login() {
   }
 
   function login() {
-
-    if (users.find(e => e.email === email)) {
-      const user = users.find(e => e.email === email);
-      if (user.senha === password) {
+    const userAux = users.find(e => e.email === email);
+    console.log('userAux', userAux);
+    if (userAux) {
+      console.log('userAux 2', userAux);
+      if (userAux.senha === password) {
+        console.log('userAux 3', userAux);
         localStorage.setItem('userToken', 'logged');
-        history.push('/products');
+        window.location.href = `${window.location.origin}/#/products`;
       } else {
         alert('usuario ou senha inválidos');
         return false;
@@ -55,7 +56,7 @@ function Login() {
         </div>
         <div className="login-footer">
           <Button variant="outlined" color="primary" fullWidth onClick={() => login()}> Entrar </Button>
-          <div>
+          <div className="sign-up">
             <span>Você ainda não tem uma conta? </span>
             <a href="#/user">Cadastrar-se</a>
           </div>

@@ -14,9 +14,17 @@
         margin-bottom: 10px;
       }
     }
-    .form-footer {
-      width: 100%;
-      display: flex;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login {
+    margin-top: 80px;
+    div.sign-up {
+      a,
+      span {
+        font-size: 12px;
+      }
     }
   }
 }

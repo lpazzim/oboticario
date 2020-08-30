@@ -9,3 +9,12 @@
         background-color: #fff;
     }
 }
+
+
+@media only screen and (max-width: 600px) {
+    .header-container {
+        .header {
+            margin-left: 50px;
+        }
+    }
+  }
