@@ -7,16 +7,18 @@ import Sales from './containers/Sales/Sales.jsx';
 import './App.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import PrivateRoute from './routes/PrivateRoute';
+const user = localStorage.getItem('userToken');
 
-const App = ({ user }) => (
+const App = () => (  
   <HashRouter basename={process.env.PUBLIC_URL}>
     <div className="App">
       <Header />
       <div className="app-content">
         <Route user={user} path="/" exact component={Login} />
         <Route user={user} path="/user" exact component={User} />
-        <Route user={user} path="/products" exact component={Products} />
-        <Route user={user} path="/sales" exact component={Sales} />
+        <PrivateRoute user={user} path="/products" exact component={Products} />
+        <PrivateRoute user={user} path="/sales" exact component={Sales} />
       </div>
       <Footer />
     </div>

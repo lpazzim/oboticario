@@ -78,12 +78,12 @@ function User() {
         </div>
         <div className="form-row">
           <div className="password">
-            <TextField id="password" label="Senha" onChange={(e) =>
+            <TextField id="password" label="Senha" type="password" onChange={(e) =>
               setUser({ ...user, senha: e.target.value })
             } />
           </div>
           <div className="confirm-password">
-            <TextField id="confirm-password" label="Confirmar Senha" onChange={(e) =>
+            <TextField id="confirm-password" label="Confirmar Senha" type="password" onChange={(e) =>
               setConfirmPassword(e.target.value)
             } />
           </div>
