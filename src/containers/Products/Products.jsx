@@ -3,6 +3,7 @@ import './Products.scss';
 import BoticarioServices from '../../utils/services';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Modal, Fade, Backdrop, TextField } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -42,6 +43,8 @@ function Products() {
     const [open, setOpen] = React.useState(false);
     const [cart, setCart] = useState([]);
     const [totalCart, setTotalCart] = useState(0);
+    const [qtdTotalCart, setQtdTotalCart] = useState(0);
+    const history = useHistory();
 
     useEffect(() => {
         loadProducts();
@@ -81,13 +84,32 @@ function Products() {
 
     function calculateTotalCart() {
         let total = 0;
+        let qtdTotal = 0;
         if (cart.length > 0) {
             cart.forEach((el) => {
                 total = total + (el.qtd * el.price);
+                qtdTotal = parseInt(qtdTotal) + parseInt(el.qtd);
             }
             );
         }
+        setQtdTotalCart(qtdTotal);
         setTotalCart(total);
+    }
+
+    function postSale() {
+        const sale = {
+            totalValue: totalCart.toFixed(2),
+            qtdItems: qtdTotalCart,
+            dtSale: new Date(),
+            cashbackPercentage: 0.03,
+            status: 'Em validação'
+        };
+        BoticarioServices.postSales(sale).then(() => {
+            history.push('/sales');
+        })
+            .catch((error) => {
+                return error;
+            });
     }
 
     return (
@@ -148,7 +170,7 @@ function Products() {
                         </div>
                         <Button fullWidth variant="contained"
                             color="primary"
-                            onClick={() => console.log('cart', cart)}>
+                            onClick={() => postSale()}>
                             FINALIZAR COMPRA
                             </Button>
                     </div>
