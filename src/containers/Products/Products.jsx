@@ -9,12 +9,15 @@ const useStyles = makeStyles((theme) => ({
     modal: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     paper: {
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
+        '@media only screen and (max-width: 600px)': {
+            maxWidth: '300px',
+          },
     },
     cartItem: {
         display: 'flex',
@@ -25,15 +28,30 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: '24px',
         fontSize: '12px',
         minWidth: '350px',
+        '@media only screen and (max-width: 600px)': {
+            minWidth: '150px',
+            fontSize: '12px',
+          },
     },
     qtdItem: {
         paddingRight: '24px',
         width: '70px',
+        '@media only screen and (max-width: 600px)': {
+            width: '30px',
+          },
     },
     totalItems: {
         display: 'flex',
         width: '100%',
         justifyContent: 'space-between',
+    },
+    priceItem:{
+        fontSize: '16px',
+        '@media only screen and (max-width: 600px)': {
+            fontSize: '14px',
+            width: '100px',
+            textAlign: 'right',
+          },
     }
 }));
 
@@ -159,8 +177,8 @@ function Products() {
                                     <p className={classes.itemDescription}>
                                         {c.description}
                                     </p>
-                                    <TextField className={classes.qtdItem} id="qtd" defaultValue={c.qtd} label="quantidade" onChange={(e) => setQtd(e.target.value, index)} />
-                                    <p>{`R$ ${c.price}`}</p>
+                                    <TextField className={classes.qtdItem} id="qtd" defaultValue={c.qtd} label="qtd" onChange={(e) => setQtd(e.target.value, index)} />
+                                    <p className={classes.priceItem}>{`R$ ${c.price}`}</p>
                                 </div>
                             ))}
                         </div>
