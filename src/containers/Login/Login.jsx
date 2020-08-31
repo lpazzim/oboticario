@@ -12,6 +12,7 @@ function Login() {
   const history = useHistory();
 
   useEffect(() => {
+    localStorage.removeItem('userToken');
     loadUsers();
   }, []);
 
@@ -26,11 +27,8 @@ function Login() {
 
   function login() {
     const userAux = users.find(e => e.email === email);
-    console.log('userAux', userAux);
     if (userAux) {
-      console.log('userAux 2', userAux);
       if (userAux.senha === password) {
-        console.log('userAux 3', userAux);
         localStorage.setItem('userToken', 'logged');
         window.location.href = `${window.location.origin}/#/products`;
       } else {

@@ -7,6 +7,14 @@
         display: flex;
         padding: 24px 0;
         background-color: #fff;
+        i{
+            position: absolute;
+            top: 35px;
+            right: 16px;
+            font-size: 32px;
+            color: #3f51b5;
+            cursor: pointer;
+        }
     }
 }
 

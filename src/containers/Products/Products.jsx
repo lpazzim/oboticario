@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
         '@media only screen and (max-width: 600px)': {
             maxWidth: '300px',
-          },
+        },
     },
     cartItem: {
         display: 'flex',
@@ -26,32 +26,45 @@ const useStyles = makeStyles((theme) => ({
     },
     itemDescription: {
         paddingRight: '24px',
-        fontSize: '12px',
+        fontSize: '16px',
         minWidth: '350px',
         '@media only screen and (max-width: 600px)': {
             minWidth: '150px',
             fontSize: '12px',
-          },
+        },
     },
     qtdItem: {
         paddingRight: '24px',
         width: '70px',
         '@media only screen and (max-width: 600px)': {
             width: '30px',
-          },
+        },
     },
     totalItems: {
         display: 'flex',
         width: '100%',
         justifyContent: 'space-between',
     },
-    priceItem:{
+    priceItem: {
         fontSize: '16px',
         '@media only screen and (max-width: 600px)': {
             fontSize: '14px',
             width: '100px',
             textAlign: 'right',
-          },
+        },
+    },
+    continueButton: {
+        marginTop: '24px',
+    },
+    iconRemove: {
+        paddingTop: '20px',
+        paddingLeft: '10px',
+        color: '#3f51b5',
+        cursor: 'pointer',
+        '@media only screen and (max-width: 600px)': {
+            paddingTop: '12px',
+            paddingLeft: '10px',
+        },
     }
 }));
 
@@ -130,6 +143,14 @@ function Products() {
             });
     }
 
+    function removeItem(idx) {
+        cart.splice(idx, 1);
+        setCart([...cart]);
+        if (cart.length <= 0) {
+            handleClose();
+        }
+    }
+
     return (
         <section className="products">
             <div className="products-container">
@@ -171,7 +192,7 @@ function Products() {
                 <Fade in={open}>
                     <div className={classes.paper}>
                         <h2 id="transition-modal-title">Sacola</h2>
-                        <div>
+                        <div key={cart}>
                             {cart.map((c, index) => (
                                 <div className={classes.cartItem}>
                                     <p className={classes.itemDescription}>
@@ -179,6 +200,7 @@ function Products() {
                                     </p>
                                     <TextField className={classes.qtdItem} id="qtd" defaultValue={c.qtd} label="qtd" onChange={(e) => setQtd(e.target.value, index)} />
                                     <p className={classes.priceItem}>{`R$ ${c.price}`}</p>
+                                    <i className={`icon-trash-o ${classes.iconRemove}`} onClick={() => removeItem(index)} />
                                 </div>
                             ))}
                         </div>
@@ -190,7 +212,12 @@ function Products() {
                             color="primary"
                             onClick={() => postSale()}>
                             FINALIZAR COMPRA
-                            </Button>
+                        </Button>
+                        <Button className={classes.continueButton} fullWidth variant="contained"
+                            color="primary"
+                            onClick={() => handleClose()}>
+                            CONTINUAR COMPRANDO
+                        </Button>
                     </div>
                 </Fade>
             </Modal>
