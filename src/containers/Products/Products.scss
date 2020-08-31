@@ -25,9 +25,24 @@
             display: flex;
             width: 100%;
             justify-content: space-between;
-            .MuiTextField-root{
+            .MuiTextField-root {
                 width: 80px;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .products-container {
+        display: inline;
+        justify-content: center;
+        margin: 0 auto;
+        .item {
+            margin: 24px 10px;
+            border: 1px solid #ebebeb;
+            border-radius: 2px;
+            padding: 10px;
+            min-width: 255px;
         }
     }
 }

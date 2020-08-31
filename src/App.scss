@@ -1,13 +1,23 @@
-
-body, html {
-  overflow-x: hidden; 
+body,
+html {
+  overflow-x: hidden;
   margin: 0;
 }
 
 .App {
-  background-color: #fafafa;
-  .app-content{
+  .app-content {
     position: absolute;
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    .app-content {
+      position: relative;
+      margin: 0;
+      padding-bottom: 6rem;
+      min-height: 100%;
+    }
   }
 }
