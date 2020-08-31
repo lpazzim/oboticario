@@ -3,7 +3,7 @@ import logo from './../../assets/images/logo.png';
 import './Header.scss';
 
 
-export default function Header() {
+export default function Header(props) {
     const logged = localStorage.getItem('userToken');
 
     function logout() {

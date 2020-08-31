@@ -21,7 +21,8 @@ function User() {
 
   function handleSubmit() {
     BoticarioServices.postUser(user).then(() => {
-      history.push('/products');
+      localStorage.setItem('userToken', 'logged');
+      window.location.href = `${window.location.origin}/#/products`;
     })
       .catch((error) => {
         return error;

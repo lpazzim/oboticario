@@ -12,7 +12,7 @@ import PrivateRoute from './routes/PrivateRoute';
 const App = () => (  
   <HashRouter basename={process.env.PUBLIC_URL}>
     <div className="App">
-      <Header key={Math.random()} />
+      <Header />
       <div className="app-content">
         <Route path="/" exact component={Login} />
         <Route path="/user" exact component={User} />
