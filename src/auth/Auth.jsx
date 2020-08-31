@@ -1,5 +1,5 @@
-const isAuthenticated = (user) => {
-    if (user) {
+const isAuthenticated = () => {
+    if (localStorage.getItem('userToken')) {
         return true;
     }
     return false;

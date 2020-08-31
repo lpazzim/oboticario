@@ -155,7 +155,7 @@ function Products() {
         <section className="products">
             <div className="products-container">
                 {products.map((c) => (
-                    <div className="item">
+                    <div className="item" key={c.id}>
                         <div className="item-image">
                             <img alt="imagem" src={c.image} onClick={() => {
                                 addItem(c);
@@ -194,7 +194,7 @@ function Products() {
                         <h2 id="transition-modal-title">Sacola</h2>
                         <div key={cart}>
                             {cart.map((c, index) => (
-                                <div className={classes.cartItem}>
+                                <div className={classes.cartItem} key={c.id}>
                                     <p className={classes.itemDescription}>
                                         {c.description}
                                     </p>

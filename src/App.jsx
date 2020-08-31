@@ -8,17 +8,16 @@ import './App.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import PrivateRoute from './routes/PrivateRoute';
-const user = localStorage.getItem('userToken');
 
 const App = () => (  
   <HashRouter basename={process.env.PUBLIC_URL}>
     <div className="App">
-      <Header />
+      <Header key={Math.random()} />
       <div className="app-content">
-        <Route user={user} path="/" exact component={Login} />
-        <Route user={user} path="/user" exact component={User} />
-        <PrivateRoute user={user} path="/products" exact component={Products} />
-        <PrivateRoute user={user} path="/sales" exact component={Sales} />
+        <Route path="/" exact component={Login} />
+        <Route path="/user" exact component={User} />
+        <PrivateRoute path="/products" exact component={Products} />
+        <PrivateRoute path="/sales" exact component={Sales} />
       </div>
       <Footer />
     </div>

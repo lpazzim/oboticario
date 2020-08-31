@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import isAuthenticated from '../auth/Auth';
 
+
 const PrivateRoute = ({
   component: Component, user, path, ...rest
 }) => (
